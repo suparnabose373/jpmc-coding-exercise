@@ -17,7 +17,7 @@ const Table = () => {
         return nameOrder[b] - nameOrder[a];
     };
 
-    const handleClick = (col, datatype: string) => {
+    const handleClick = (col: any, datatype: string) => {
         setSortCol(col)
         if (col === sortCol)
             setSortOrder((sortOrder === 'asc' || sortOrder === null) ? 'desc' : 'asc');
@@ -42,7 +42,7 @@ const Table = () => {
     };
 
     return (
-    <div>
+    <div className="table-container">
         <table>
             <thead>
                 <tr>
