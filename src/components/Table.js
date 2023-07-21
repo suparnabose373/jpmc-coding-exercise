@@ -6,9 +6,9 @@ import { FiArrowUpCircle, FiArrowDownCircle } from 'react-icons/fi';
 const Table = () => {
     const [data, setData] = useState(dataSet);
     const [sortCol, setSortCol] = useState(null);
-    const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null);
+    const [sortOrder, setSortOrder] = useState(null);
 
-    function customSort(a: string, b: string) {
+    function customSort(a, b) {
         const nameOrder = {
             Equities: 1, 
             Macro: 2, 
@@ -17,7 +17,7 @@ const Table = () => {
         return nameOrder[b] - nameOrder[a];
     };
 
-    const handleClick = (col: any, datatype: string) => {
+    const handleClick = (col, datatype) => {
         setSortCol(col)
         if (col === sortCol)
             setSortOrder((sortOrder === 'asc' || sortOrder === null) ? 'desc' : 'asc');
@@ -34,7 +34,7 @@ const Table = () => {
         setData([...sortedData]);
     };
 
-    const getSortArrow = (col: string) => {
+    const getSortArrow = (col) => {
         if (col === sortCol) {
           return sortOrder === 'asc' ? <FiArrowUpCircle /> : <FiArrowDownCircle />;
         }
